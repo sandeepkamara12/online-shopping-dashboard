@@ -3,9 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 const Register = () => {
-    const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
     const initialValues = {
-        name: '',
+        name: '', 
         email: '',
         password: ''
     };
@@ -13,20 +12,20 @@ const Register = () => {
     const validationSchema = Yup.object({
         name: Yup.string().min(4).max(20).required("User name is required!"),
         email: Yup.string().email().required("Email is required!"),
-        password: Yup.string().required("Password is required!").min(8, "Password should be 8 charachters long").matches(passwordRules, "Password must contains 1 lowercase and uppercase letter with one number and one special charachter.")
+        password: Yup.string().required("Password is required!").min(8, "Password must be 8 charachters long").matches(/[0-9]/, 'Password requires a number').matches(/[a-z]/, 'Password requires a lowercase letter').matches(/[A-Z]/, 'Password requires an uppercase letter').matches(/[^\w]/, 'Password requires a symbol')
     });
 
     const onSubmit = async values => {
-        let result = await fetch("https://splitwith-server.vercel.app/api/v1/auth/ragister", {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-            },
-            body: JSON.stringify(values)
-        })
-        result = await result.json();
-        console.warn(result);
+        // let result = await fetch("https://splitwith-server.vercel.app/api/v1/auth/ragister", {
+        //     method: 'POST',
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         "Accept": "application/json",
+        //     },
+        //     body: JSON.stringify(values)
+        // })
+        // result = await result.json();
+        // console.warn(result);
     };
 
     return (
