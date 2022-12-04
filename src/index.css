@@ -6,6 +6,9 @@ body,
 .text-white-tone {
   color:#f1eded;
 }
+.h1, h1 {
+  font-size: 1.5rem!important;
+}
 .fw-medium {
   font-weight: 500;
 }
