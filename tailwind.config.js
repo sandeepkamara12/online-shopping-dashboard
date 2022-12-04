@@ -3,6 +3,13 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['Roboto'],
+        // 'serif': ['Playfair Display'],
+        // 'mono': ['Roboto Mono'],
+        // 'display': ['Roboto'],
+        'body': ['Roboto'],
+      },
       colors: {
         // 'primary': '#0A58ED',
       },
@@ -10,3 +17,4 @@ module.exports = {
   },
   plugins: [],
 }
+1
