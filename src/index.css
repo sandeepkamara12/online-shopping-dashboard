@@ -13,6 +13,6 @@ body,
   font-weight: 500;
 }
 
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
