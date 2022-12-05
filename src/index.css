@@ -8,6 +8,11 @@ body,
   color:#f1eded;
 }
 
+input[type="text"] {
+  height: 42px;
+  border-radius: 4px;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

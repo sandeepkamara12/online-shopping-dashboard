@@ -16,7 +16,7 @@ const Splash = () => {
                     <p className="mb-0 text-sm">Mobile task and meeting schedule manage design template</p>
                     <Button className="btn bg-white text-primary text-uppercase rounded w-100 fw-bold my-4 py-2">Sign Up</Button>
                     <span>Already a member?</span>
-                    <Link className="text-white text-decoration-none text-capitalize font-medium mt-2">Sign in</Link>
+                    <Link to="/login" className="text-white text-decoration-none text-capitalize font-medium mt-2">Sign in</Link>
                 </div>
             </div>
         </div>
