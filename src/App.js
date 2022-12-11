@@ -1,25 +1,26 @@
 import './App.css';
-import Header from './Header';
 import Login from './Login';
 import Register from './Register';
 import AddProduct from './AddProduct';
 import UpdateProduct from './UpdateProduct';
 import { Routes, Route } from 'react-router-dom';
 import Splash from './components/Splash';
+import Otp from './components/Otp';
+import Protected from './components/Protected';
 
 function App() {
   return (
     <div className="App">
-      {/* <Header /> */}
       <Routes>
-        <Route path="/" element={<Splash />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/add" element={<AddProduct />}></Route>
-        <Route path="/update" element={<UpdateProduct />}></Route>
-      </Routes>
+        <Route path="/" element={<Protected Cmp={Splash} />}></Route>
+        <Route path="/login" element={<Protected Cmp={Login} />}></Route>
+        <Route path="/register" element={<Protected Cmp={Register} />}></Route>
+        <Route path="/add" element={<Protected Cmp={AddProduct} />}></Route>
+        <Route path="/update" element={<Protected Cmp={UpdateProduct} />}></Route>
+        <Route path="/otp" element={<Protected Cmp={Otp} />}></Route>
+      </Routes> 
     </div>
   );
 }
 
-export default App; 
+export default App;
