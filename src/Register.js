@@ -32,15 +32,12 @@ const Register = () => {
         })
         result = await result.json();
         setMessage(result);
-
-        let userIdForOTP = result.id;
-        result.success && localStorage.setItem("user-register-info", JSON.stringify(values));
-        result.success && localStorage.getItem('user-register-info') && navigate('/otp', { state: userIdForOTP });
+        result.success && navigate('/otp', { state: result });
     };
 
-    useEffect(() => {
-        localStorage.getItem('user-register-info') && navigate('/register');
-    }, [])
+    // useEffect(() => {
+    //     localStorage.getItem('user-register-info') && navigate('/register');
+    // }, [])
     return (
         <Layout>
             <div className="min-vh-100 w-100 bg-primary d-flex flex-wrap align-items-center">

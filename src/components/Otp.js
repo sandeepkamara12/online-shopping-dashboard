@@ -2,19 +2,18 @@ import React, { useState } from 'react';
 import OtpInput from 'react18-input-otp';
 import Layout from '../Layout/Layout';
 import { Button } from 'react-bootstrap';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Otp = () => {
     const [otp, setOtp] = useState('');
     const location = useLocation();
-    const params = useParams();
+    const navigate = useNavigate();
 
     const handleOtp = (otp) => {
         setOtp(otp);
     }
     const onSubmit = async () => {
-        let otpForVerification = { id: location.state, otp: otp };
-        console.log(otpForVerification, 'skh');
+        let otpForVerification = { id: location.state.id, otp: otp };
         let verified = await fetch("https://splitwith-server.vercel.app/api/v1/auth/register/verify", {
             method: 'POST',
             headers: {
@@ -24,7 +23,8 @@ const Otp = () => {
             body: JSON.stringify(otpForVerification)
         });
         verified = await verified.json();
-        console.log(verified);
+        verified.success && localStorage.setItem("user-register-info", JSON.stringify(verified));
+        verified.success && navigate('/add');
     }
 
     return (

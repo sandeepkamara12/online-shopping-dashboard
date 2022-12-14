@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Loader from './Loader';
 
 const Protected = (props) => {
     let navigate = useNavigate();
-    let Cmp = props.Cmp;
     const isLogin = localStorage.getItem('user-register-info');
-
+    let Cmp = props.Cmp;
+    const [loader, setLoader] = useState(true);
     useEffect(() => {
         if (!isLogin) {
             navigate('/register');
         }
-    }, [isLogin])
+        setLoader(false);
+    }, [isLogin, navigate]);
 
-    return (
-        <Cmp />
-    )
+    return (loader ? <Loader /> : <Cmp />)
 }
 
 export default Protected;

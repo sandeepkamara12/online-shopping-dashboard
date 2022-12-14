@@ -21,11 +21,11 @@ const Header = () => {
                             <>
                                 <Link className="nav-link" to="/add">Add Product</Link>
                                 <Link className="nav-link" to="/update">Update Product</Link>
-                                <Link className="nav-link" to="/otp">Otp</Link>
                                 <Link className="nav-link" onClick={handleLogout}>{user && user.name} Logout</Link>
                             </>
                             :
                             <>
+                                <Link className="nav-link" to="/otp">Otp</Link>
                                 <Link className="nav-link" to="/login">Login</Link>
                                 <Link className="nav-link" to="/register">Register</Link>
                             </>
